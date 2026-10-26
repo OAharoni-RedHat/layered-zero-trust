@@ -3,3 +3,9 @@
 # You can add custom targets above or below the include line
 
 include Makefile-common
+
+export VP_SKIP_ARGO_HEALTHCHECK ?= true
+
+.PHONY: install
+install: ## Installs the pattern onto a cluster (Loads secrets as well if configured)
+	@$(ANSIBLE_RUN) rhvp.cluster_utils.install
