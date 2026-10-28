@@ -67,6 +67,7 @@ clusterGroup:
       catalogSource: redhat-operators
       annotations:
         argocd.argoproj.io/sync-wave: "27"  # Install after OperatorGroup (26), before applications
+  applications:
     vault:
       name: vault
       namespace: vault
@@ -76,8 +77,7 @@ clusterGroup:
       extraValueFiles:
         - /overrides/values-vault-network-policy.yaml
       annotations:
-        argocd.argoproj.io/sync-wave: "25"    
-  applications:
+        argocd.argoproj.io/sync-wave: "25"
     noobaa-mcg:
       name: noobaa-mcg
       namespace: openshift-storage
